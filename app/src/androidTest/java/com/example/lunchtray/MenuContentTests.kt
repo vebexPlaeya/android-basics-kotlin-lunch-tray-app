@@ -40,7 +40,7 @@ class MenuContentTests : BaseTest() {
      * however, it is done here for improved readability of the file.
      */
     @Test
-    fun `entree_menu_item_content`() {
+    fun entree_menu_item_content() {
         // launch the entree menu fragment
         launchFragmentInContainer<EntreeMenuFragment>(themeResId = R.style.Theme_LunchTray)
 
@@ -85,7 +85,7 @@ class MenuContentTests : BaseTest() {
      * functions that would otherwise be necessary to test each item separately.
      */
     @Test
-    fun `side_menu_item_content`() {
+    fun side_menu_item_content() {
         // launch the side menu fragment
         launchFragmentInContainer<SideMenuFragment>(themeResId = R.style.Theme_LunchTray)
 
@@ -130,7 +130,7 @@ class MenuContentTests : BaseTest() {
      * functions that would otherwise be necessary to test each item separately.
      */
     @Test
-    fun `accompaniment_menu_item_content`() {
+    fun accompaniment_menu_item_content() {
         // launch the accompaniment menu fragment
         launchFragmentInContainer<AccompanimentMenuFragment>(themeResId = R.style.Theme_LunchTray)
 

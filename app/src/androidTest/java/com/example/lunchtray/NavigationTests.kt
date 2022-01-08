@@ -40,7 +40,7 @@ class NavigationTests : BaseTest() {
      * Test navigation from [StartOrderFragment] to [EntreeMenuFragment]
      */
     @Test
-    fun `navigate_to_entree_menu_from_start_order`() {
+    fun navigate_to_entree_menu_from_start_order() {
         // Init nav controller
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
@@ -62,7 +62,7 @@ class NavigationTests : BaseTest() {
      * Test navigation from [EntreeMenuFragment] to [StartOrderFragment]
      */
     @Test
-    fun `navigate_to_start_order_from_entree_menu`() {
+    fun navigate_to_start_order_from_entree_menu() {
         // Init nav controller
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
@@ -80,14 +80,14 @@ class NavigationTests : BaseTest() {
         // Click the cancel button
         onView(withId(R.id.cancel_button)).perform(click())
         // Check that the destination is correct
-        assertEquals(navController.currentDestination?.id, R.id.startOrder)
+        assertEquals(navController.currentDestination?.id, R.id.startOrderFragment)
     }
 
     /**
      * Test navigation from [EntreeMenuFragment] to [SideMenuFragment]
      */
     @Test
-    fun `navigate_to_side_menu_from_entree_menu`() {
+    fun navigate_to_side_menu_from_entree_menu() {
         // Init nav controller
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
@@ -112,7 +112,7 @@ class NavigationTests : BaseTest() {
      * Test navigation from [SideMenuFragment] to [StartOrderFragment]
      */
     @Test
-    fun `navigate_to_start_order_from_side_menu`() {
+    fun navigate_to_start_order_from_side_menu() {
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
         val sideMenuScenario =
@@ -123,14 +123,14 @@ class NavigationTests : BaseTest() {
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.cancel_button)).perform(click())
-        assertEquals(navController.currentDestination?.id, R.id.startOrder)
+        assertEquals(navController.currentDestination?.id, R.id.startOrderFragment)
     }
 
     /**
      * Test navigation from [SideMenuFragment] to [AccompanimentMenuFragment]
      */
     @Test
-    fun `navigate_to_accompaniment_menu_from_side_menu`() {
+    fun navigate_to_accompaniment_menu_from_side_menu() {
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
         val sideMenuScenario =
@@ -148,7 +148,7 @@ class NavigationTests : BaseTest() {
      * Test navigation from [AccompanimentMenuFragment] to [StartOrderFragment]
      */
     @Test
-    fun `navigate_to_start_order_from_accompaniment_menu`() {
+    fun navigate_to_start_order_from_accompaniment_menu() {
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
         val accompanimentMenuScenario =
@@ -160,14 +160,14 @@ class NavigationTests : BaseTest() {
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.cancel_button)).perform(click())
-        assertEquals(navController.currentDestination?.id, R.id.startOrder)
+        assertEquals(navController.currentDestination?.id, R.id.startOrderFragment)
     }
 
     /**
      * Test navigation from [AccompanimentMenuFragment] to [CheckoutFragment]
      */
     @Test
-    fun `navigate_to_checkout_from_accompaniment_menu`() {
+    fun navigate_to_checkout_from_accompaniment_menu() {
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
         val accompanimentMenuScenario =
@@ -186,7 +186,7 @@ class NavigationTests : BaseTest() {
      * Test navigation from [CheckoutFragment] to [StartOrderFragment]
      */
     @Test
-    fun `navigate_to_start_order_from_checkout`() {
+    fun navigate_to_start_order_from_checkout() {
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
         val checkoutScenario =
@@ -197,14 +197,14 @@ class NavigationTests : BaseTest() {
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.cancel_button)).perform(click())
-        assertEquals(navController.currentDestination?.id, R.id.startOrder)
+        assertEquals(navController.currentDestination?.id, R.id.startOrderFragment)
     }
 
     /**
      * Test Navigation from [CheckoutFragment] to [StartOrderFragment]
      */
     @Test
-    fun `navigate_to_start_order_from_checkout_via_submit`() {
+    fun navigate_to_start_order_from_checkout_via_submit() {
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
         val checkoutScenario =
@@ -215,6 +215,6 @@ class NavigationTests : BaseTest() {
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.submit_button)).perform(click())
-        assertEquals(navController.currentDestination?.id, R.id.startOrder)
+        assertEquals(navController.currentDestination?.id, R.id.startOrderFragment)
     }
 }

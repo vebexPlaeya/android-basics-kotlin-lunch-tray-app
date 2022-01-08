@@ -21,6 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.lunchtray.R
 import com.example.lunchtray.databinding.FragmentCheckoutBinding
 import com.example.lunchtray.model.OrderViewModel
@@ -48,14 +49,13 @@ class CheckoutFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCheckoutBinding.inflate(inflater, container, false)
-        val root = binding.root
 
         // Calculate tax and total upon creating the CheckoutFragment view
         sharedViewModel.calculateTaxAndTotal()
 
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,6 +63,8 @@ class CheckoutFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             // TODO: initialize the OrderViewModel and CheckoutFragment variables
+            viewModel = sharedViewModel
+            checkoutFragment = this@CheckoutFragment
         }
     }
 
@@ -71,7 +73,9 @@ class CheckoutFragment : Fragment() {
      */
     fun cancelOrder() {
         // TODO: Reset order in view model
+        sharedViewModel.resetOrder()
         // TODO: Navigate back to the [StartFragment] to start over
+        findNavController().navigate(R.id.action_checkoutFragment_to_startOrderFragment)
     }
 
     /**
@@ -81,7 +85,9 @@ class CheckoutFragment : Fragment() {
         // Show snackbar to "confirm" order
         Snackbar.make(binding.root, R.string.submit_order, Snackbar.LENGTH_SHORT).show()
         // TODO: Reset order in view model
+        sharedViewModel.resetOrder()
         // TODO: Navigate back to the [StartFragment] to start over
+        findNavController().navigate(R.id.action_checkoutFragment_to_startOrderFragment)
     }
 
     /**
